@@ -16,6 +16,10 @@ namespace eShopOnWebE2ETests.StepDefinitions
         private CheckoutPage checkoutPage;
         private OrderConfirmationPage orderConfirmationPage;
 
+        private string username = System.Environment.GetEnvironmentVariable("USERNAME");
+        private string password = System.Environment.GetEnvironmentVariable("PASSWORD");
+
+
         [Given(@"eShopOnWeb application available at ""(.*)""")]
         public void GivenEShopOnWebApplicationAvailableAt(string url)
         {
@@ -46,8 +50,8 @@ namespace eShopOnWebE2ETests.StepDefinitions
         [When(@"I enter valid user credentials")]
         public void WhenIEnterValidUserCredentials()
         {
-            loginPage.EnterUsername("***********");
-            loginPage.EnterPassword("***********");
+            loginPage.EnterUsername(username);
+            loginPage.EnterPassword(password);
         }
 
         [When(@"I click Login button")]
